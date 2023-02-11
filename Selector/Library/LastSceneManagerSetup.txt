@@ -1,0 +1,9 @@
+sceneSetups:
+<<<<<<< HEAD:Selector/Library/LastSceneManagerSetup.txt
+- path: Assets/Scenes/MainGameScene.unity
+=======
+- path: Assets/Scenes/SampleScene.unity
+>>>>>>> parent of 581d34f6 (23):Camera Walk/Library/LastSceneManagerSetup.txt
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
