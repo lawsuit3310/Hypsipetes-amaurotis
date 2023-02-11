@@ -11,8 +11,16 @@ namespace Boat{
         public GameObject[] backGrounds = new GameObject[2];
 
         //true : gotoLeft, false : gotoRight;
-        private bool Direction = true;
+        public bool Direction = true;
 
+        private void OnEnable()
+        {
+            if (GameObject.FindGameObjectsWithTag("GameManager").Length > 1)
+            {
+                //if the GameManager is already exist, destroy this gameObject
+                Destroy(this.gameObject);
+            }
+        }
         // Start is called before the first frame update
         private void Awake()
         {
@@ -43,66 +51,16 @@ namespace Boat{
             #endregion
 
         }
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
 
         #region method belongs UI
-        public void GotoLeft()
-        {
-            try
-            {
-                Direction = true;
-                camControllers[0].gameObject.SetActive(false);
-                camControllers[1].gameObject.SetActive(true);
-                StartCoroutine("BackGroundFadeEffect");
-            }
-            catch
-            {
-                Debug.LogError("Unexpected. (1)");
-            }
-        }
-        public void GotoRight()
-        {
-            try
-            {
-                Direction = false;
-                camControllers[0].gameObject.SetActive(true);
-                camControllers[1].gameObject.SetActive(false);
-                StartCoroutine("BackGroundFadeEffect");
 
-            }
-            catch
-            {
-                Debug.LogError("Unexpected. (2)");
-            }
+
+        public void LaunchGame()
+        {
+            Debug.Log(true);
+            SceneManager.LoadScene("MainGameScene");
         }
         #endregion
 
-        #region Coroutines
-        IEnumerator BackGroundFadeEffect() {
-
-            for (int i = 0; i < 20; i++)
-            {
-                foreach (GameObject backGround in backGrounds)
-                {
-                    Vector3 pos = backGround.transform.position;
-                    backGround.transform.position = new Vector3(
-                        Direction ? pos.x + 1 : pos.x - 1, pos.y, pos.z);
-                }
-
-                yield return new WaitForSeconds(0.01f);
-            }
-            yield break;
-        }
-        #endregion
     }
 }

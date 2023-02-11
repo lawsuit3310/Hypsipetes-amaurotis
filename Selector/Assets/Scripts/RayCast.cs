@@ -6,8 +6,10 @@ namespace Boat
 {
     public class RayCast : MonoBehaviour
     {
+        public GameObject[] PearBox = new GameObject[5];
+        private int idx = 0;
         // Update is called once per frame
-        private void Update()
+        private  void Update()
         {
             //On Mouse click
             if (Input.GetMouseButtonDown(0))
@@ -16,9 +18,18 @@ namespace Boat
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
                 if (hit.collider != null)
                 {
+                    Debug.Log("It's clicked");
                     EconomicManager.IncreaseMoney();
+                    ExpManager.IncreaseEXP();
+                    if (Random.Range(0,100) < 2) //2% È®·ü·Î
+                    {
+                        PearBox[idx%5].SetActive(true);
+                        idx++;
+                    }
                 }
             }
+
         }
+
     }
 }

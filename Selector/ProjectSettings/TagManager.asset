@@ -3,13 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD:Selector/ProjectSettings/TagManager.asset
   tags:
   - CameraController
   - BackGround
-=======
-  tags: []
->>>>>>> parent of 581d34f6 (23):Camera Walk/ProjectSettings/TagManager.asset
+  - GameManager
+  - Pear
   layers:
   - Default
   - TransparentFX
