@@ -49,7 +49,23 @@ namespace Boat{
                 camControllers[0].gameObject.SetActive(false);
             }
             #endregion
-
+            if (!PlayerPrefs.HasKey("OwnBoat"))
+            {
+                PlayerPrefs.SetInt("OwnBoat", 0);
+            }
+            if (!PlayerPrefs.HasKey("OwnWood"))
+            {
+                PlayerPrefs.SetInt("OwnWood", 0);
+            }
+            if (!PlayerPrefs.HasKey("Level"))
+            {
+                PlayerPrefs.SetInt("Level", 1);
+            }
+            if (!PlayerPrefs.HasKey("Exp"))
+            {
+                PlayerPrefs.SetInt("Exp", 0);
+            }
+            //PlayerPrefs.SetInt("OwnBoat", 0);
         }
 
         #region method belongs UI
